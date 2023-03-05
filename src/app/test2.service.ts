@@ -25,7 +25,7 @@ export class Test2Service {
         map(value => value + 1)
       )
       // log: 2, 3, 4, 5, 6
-      .subscribe(value => this.msg.add(value.toString()));
+      .subscribe(value => this.msg.log(value.toString()));
   }
 
   rxjs_test2() {
@@ -39,7 +39,7 @@ export class Test2Service {
 
       )
       // log: 3, 4, 5
-      .subscribe(value => this.msg.add(value.toString()));
+      .subscribe(value => this.msg.log(value.toString()));
   }
 
 
@@ -56,7 +56,7 @@ export class Test2Service {
         take(3)
       )
       // log: 4, 5, 6
-      .subscribe(value => this.msg.add(value.toString()));
+      .subscribe(value => this.msg.log(value.toString()));
   }
 
 
@@ -76,7 +76,7 @@ export class Test2Service {
 
       )
       // log: 4, 5, 6
-      .subscribe(value => this.msg.add(value.toString()));
+      .subscribe(value => this.msg.log(value.toString()));
   }
 
   rxjs_test5() {
@@ -84,13 +84,13 @@ export class Test2Service {
 
     // transparently log values from source with 'tap'
     const example = source.pipe(
-      tap(val => this.msg.add(`BEFORE MAP: ${val}`)),
+      tap(val => this.msg.log(`BEFORE MAP: ${val}`)),
       map(val => val + 10),
-      tap(val => this.msg.add(`AFTER MAP: ${val}`))
+      tap(val => this.msg.log(`AFTER MAP: ${val}`))
     );
     //'tap' does not transform values
     //output: 11...12...13...14...15
-    const subscribe = example.subscribe(value => this.msg.add(value.toString()));
+    const subscribe = example.subscribe(value => this.msg.log(value.toString()));
   }
 
   rxjs_test6() {
@@ -103,16 +103,16 @@ export class Test2Service {
         tap({
           next: val => {
               // on next 11, etc.
-              this.msg.add(`on next: ${val}`);
+              this.msg.log(`on next: ${val}`);
             },
           error: error => {
-              this.msg.add(`on error, ${error.message}`);
+              this.msg.log(`on error, ${error.message}`);
             },
-          complete: () => this.msg.add('on complete')
+          complete: () => this.msg.log('on complete')
         })
       )
       // output: 11, 12, 13, 14, 15
-      .subscribe(val => this.msg.add(val.toString()));
+      .subscribe(val => this.msg.log(val.toString()));
   }
 
 

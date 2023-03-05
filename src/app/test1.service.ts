@@ -19,7 +19,7 @@ export class Test1Service {
     });
 
     observable.subscribe(
-      (x: any) => this.messageService.add(x)
+      (x: any) => this.messageService.log(x)
     );
   }
 
@@ -27,7 +27,7 @@ export class Test1Service {
     const observable = of('Hey guys!');
 
     observable.subscribe(
-      (x: any) => this.messageService.add(x)
+      (x: any) => this.messageService.log(x)
     );
   }
 
@@ -35,7 +35,7 @@ export class Test1Service {
 
   rxjs_test1_3() {
     of('Hey guys!').subscribe(
-      (x: any) => this.messageService.add(x)
+      (x: any) => this.messageService.log(x)
     );
   }
 
@@ -48,7 +48,7 @@ export class Test1Service {
     });
 
     observable.subscribe(
-      (x: any) => this.messageService.add(x)
+      (x: any) => this.messageService.log(x)
     );
   }
 
@@ -62,9 +62,9 @@ export class Test1Service {
     });
 
     observable.subscribe({
-      next: (x: any) => this.messageService.add(x),
-      error: (err: any) => this.messageService.add(err),
-      complete: () => this.messageService.add('Completed')
+      next: (x: any) => this.messageService.log(x),
+      error: (err: any) => this.messageService.log(err),
+      complete: () => this.messageService.log('Completed')
     }
     );
   }
@@ -78,7 +78,7 @@ export class Test1Service {
     });
 
     observable.subscribe({
-      next: (x: any) => this.messageService.add(x),
+      next: (x: any) => this.messageService.log(x),
     }
     );
   }
@@ -92,7 +92,7 @@ export class Test1Service {
     });
 
     observable.subscribe({
-      error: (x: any) => this.messageService.add(x),
+      error: (x: any) => this.messageService.log(x),
     }
     );
   }
@@ -106,7 +106,7 @@ export class Test1Service {
     });
 
     observable.subscribe({
-      complete: () => this.messageService.add('Completed')
+      complete: () => this.messageService.log('Completed')
     }
     );
   }
@@ -127,9 +127,9 @@ export class Test1Service {
     });
 
     const observer = observable.subscribe({
-      next: (x: any) => this.messageService.add(x),
-      error: (error: any) => { this.messageService.add(error) },
-      complete: () => { this.messageService.add('completed') }
+      next: (x: any) => this.messageService.log(x),
+      error: (error: any) => { this.messageService.log(error) },
+      complete: () => { this.messageService.log('completed') }
     });
 
     setTimeout(() => {

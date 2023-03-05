@@ -1,6 +1,7 @@
 <div *ngIf="hasMessages()">
 
-    <h2> Messages</h2>
+    <div class="messageTitle">Test Messages</div>
+    
     <button type="button" class="clear" (click) = "clearMessage()"> Clear messages</button>
     <ul>
         <li *ngFor="let message of messageService.messages">
