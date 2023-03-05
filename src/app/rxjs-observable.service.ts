@@ -5,11 +5,8 @@ import { MessageService } from './message.service';
 @Injectable({
   providedIn: 'root'
 })
+export class RxjsObservableService {
 
-/**
- * This class test out the basic RxJs operations.
- */
-export class Test1Service {
 
   constructor(private messageService:MessageService) { }
 

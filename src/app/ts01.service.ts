@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { MessageService } from './message.service';
+import { Song } from './classes/song';
+import { Jukebox } from './classes/jukebox';
+import { WarehouseLocation } from './classes/warehouseLocation';
+
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +28,7 @@ export class Ts01Service {
     // Mutable - this changes the value of digits without using an assignment
     digits.push(4, 5, 6);
 
-    this.logger.log(JSON.stringify(digits));
+    this.logger.log(digits);
 
   }
 
@@ -132,7 +136,7 @@ export class Ts01Service {
     // The array.sort method expects a comparer that accepts two Monuments
     const monumentsOrderedByHeight = monuments.sort((m1, m2) => m1.heightInMeters - m2.heightInMeters);
 
-    this.logger.log(JSON.stringify(monumentsOrderedByHeight));
+    this.logger.log(monumentsOrderedByHeight);
 
   }
 
@@ -145,7 +149,7 @@ export class Ts01Service {
     // Error: 'string' is not assignable to 'number'
     //poem = ['my', true, 'love'];
 
-    this.logger.log(JSON.stringify(poem));
+    this.logger.log(poem);
 
   }
 
@@ -166,7 +170,7 @@ export class Ts01Service {
     dictionary['loligo vulgaris'] = { hasInk: true, arms: 8, tentacles: 2 };
 
 
-    this.logger.log(JSON.stringify(dictionary));
+    this.logger.log(dictionary);
 
   }
 
@@ -193,29 +197,110 @@ export class Ts01Service {
     // 'Berkeley'
     this.logger.log(dog);
     // Object { cat: 'Pickle', hamster: 'Hammy'}
-    this.logger.log(JSON.stringify(others));
+    this.logger.log(others);
 
   }
 
   spreadTest() {
     const squares = [1, 4, 9, 16, 25];
     const powers = [2, 4, 8, 16, 32];
-    // Array spreading
+
+    // Array spreading. This is really powerful.
     const squaresAndPowers = [...squares, ...powers];
     // [1, 4, 9, 16, 25, 2, 4, 8, 16, 32]
-    this.logger.log( squaresAndPowers); 
+    this.logger.log(squaresAndPowers);
 
     // for testing message function output
-    this.logger.log((a:string) => {console.log(a)})
+    this.logger.log((a: string) => { console.log(a) })
 
     // for testing message Symbol output
     let id = Symbol("id");
     this.logger.log(id);
+
+    const emergencyService = {
+      police: 'Chase',
+      fire: 'Marshall',
+    };
+    const utilityService = {
+      recycling: 'Rocky',
+      construction: 'Rubble'
+    };
+
+    // Object spreading
+    const patrol = { ...emergencyService, ...utilityService };
+    this.logger.log(patrol);
+  }
+
+  getAverageTest() {
+
+    const getAverage = function (...nums: number[]): number {
+      return nums.reduce((sum, a) => sum + a) / nums.length;
+    };
+
+    this.logger.log(getAverage(2, 3, 4, 5))
   }
 
 
 
+  curryingTest() {
 
+    // Currying
+    const multiply = (a: number) => (b: number) => a * b;
+
+    // Pass both arguments in sequence: 30
+    const numA = multiply(5)(6);
+
+    this.logger.log(numA);
+
+
+    const multiplyBy5 = multiply(5);
+
+    this.logger.log(multiplyBy5(9));
+
+  }
+
+
+
+  classTest() {
+
+    const songs = [
+      new Song('Bushbaby', 'Megaphone'),
+      new Song('Delays', 'One More Lie In'),
+      new Song('Goober Gun', 'Stereo'),
+      new Song('Sohnee', 'Shatter'),
+      new Song('Get Amped', 'Celebrity')
+    ];
+    const jukebox = new Jukebox(songs);
+
+    this.logger.log(jukebox.play());
+
+  }
+
+
+  getterSetterTest() {
+
+    const warehouseSlot = new WarehouseLocation(15, 'A6');
+
+    warehouseSlot.stockItem = { asin: 'B001TEQ2PI', description: 'Figure' };
+
+    this.logger.log(warehouseSlot.stockItem);
+
+  }
+
+  reverse<T>(list: T[]): T[] {
+    const reversedList: T[] = [];
+    for (let i = (list.length - 1); i >= 0; i--) {
+      reversedList.push(list[i]);
+    }
+    return reversedList;
+  }
+
+
+  genericTest() {
+    this.logger.log(this.reverse(['a', 'b', 'c', 'd']));
+    this.logger.log(this.reverse([1,2,3,4,5]));
+    this.logger.log(this.reverse([true, true, false,]));
+  }
 
 
 }

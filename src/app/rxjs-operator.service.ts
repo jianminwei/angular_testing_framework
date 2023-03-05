@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { map, filter, take, delay, tap} from 'rxjs/operators';
-
 import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class Test2Service {
+export class RxjsOperatorService {
 
   constructor(private msg: MessageService) { }
 
@@ -25,7 +24,7 @@ export class Test2Service {
         map(value => value + 1)
       )
       // log: 2, 3, 4, 5, 6
-      .subscribe(value => this.msg.log(value.toString()));
+      .subscribe(value => this.msg.log(value));
   }
 
   rxjs_test2() {
@@ -39,7 +38,7 @@ export class Test2Service {
 
       )
       // log: 3, 4, 5
-      .subscribe(value => this.msg.log(value.toString()));
+      .subscribe(value => this.msg.log(value));
   }
 
 
@@ -56,7 +55,7 @@ export class Test2Service {
         take(3)
       )
       // log: 4, 5, 6
-      .subscribe(value => this.msg.log(value.toString()));
+      .subscribe(value => this.msg.log(value));
   }
 
 
@@ -76,7 +75,7 @@ export class Test2Service {
 
       )
       // log: 4, 5, 6
-      .subscribe(value => this.msg.log(value.toString()));
+      .subscribe(value => this.msg.log(value));
   }
 
   rxjs_test5() {
@@ -90,7 +89,7 @@ export class Test2Service {
     );
     //'tap' does not transform values
     //output: 11...12...13...14...15
-    const subscribe = example.subscribe(value => this.msg.log(value.toString()));
+    const subscribe = example.subscribe(value => this.msg.log(value));
   }
 
   rxjs_test6() {
@@ -112,8 +111,7 @@ export class Test2Service {
         })
       )
       // output: 11, 12, 13, 14, 15
-      .subscribe(val => this.msg.log(val.toString()));
+      .subscribe(val => this.msg.log(val));
   }
-
 
 }
