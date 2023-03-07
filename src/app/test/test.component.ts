@@ -3,6 +3,7 @@ import { MessageService } from '../message.service';
 import { Ts01Service } from '../ts01.service';
 import { RxjsObservableService } from '../rxjs-observable.service';
 import { RxjsOperatorService } from '../rxjs-operator.service';
+import { Ts02Service } from '../ts02.service';
 
 @Component({
   selector: 'app-test',
@@ -14,7 +15,8 @@ export class TestComponent implements OnInit {
   constructor(public messageService: MessageService,
     private rx1: RxjsObservableService,
     private rx2: RxjsOperatorService,
-    private ts01: Ts01Service
+    private ts01: Ts01Service,
+    private ts02: Ts02Service
   ) {}
 
   /**
@@ -23,6 +25,15 @@ export class TestComponent implements OnInit {
   ngOnInit(): void {
     this.testRxJs();
     this.testTypeScript01();
+    this.testTypeScript02();
+  }
+
+  testTypeScript02() {
+    // this.ts02.callBackTest();
+    // this.ts02.callBackTest2();
+    // this.ts02.callBackTest3();
+    this.ts02.applyTest();
+    
   }
 
   /**
