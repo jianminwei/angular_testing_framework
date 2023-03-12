@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MessageService } from './message.service';
+import { MessageService } from '../message.service';
 
 @Injectable({
   providedIn: 'root'
@@ -66,6 +66,5 @@ export class Ts02Service {
     // 11
     this.logger.log(max);
   }
-
 
 }

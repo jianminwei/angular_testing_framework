@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { MessageService } from './message.service';
-import { Song } from './classes/song';
-import { Jukebox } from './classes/jukebox';
-import { WarehouseLocation } from './classes/warehouseLocation';
+import { MessageService } from '../message.service';
+import { Song } from '../classes/song';
+import { Jukebox } from '../classes/jukebox';
+import { WarehouseLocation } from '../classes/warehouseLocation';
 
 
 @Injectable({

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { map, filter, take, delay, tap} from 'rxjs/operators';
-import { MessageService } from './message.service';
+import { MessageService } from '../message.service';
 
 @Injectable({
   providedIn: 'root'
