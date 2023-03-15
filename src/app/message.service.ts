@@ -35,6 +35,9 @@ export class MessageService {
       case 'symbol':
         this.messages.push(message.toString());
         break;
+      case 'undefined':
+        this.messages.push('undefined');
+        break;       
       default:
         this.messages.push(JSON.stringify(message));
         break;

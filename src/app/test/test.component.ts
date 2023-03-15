@@ -4,6 +4,10 @@ import { Ts01Service } from '../testcase/ts01.service';
 import { RxjsObservableService } from '../testcase/rxjs-observable.service';
 import { RxjsOperatorService } from '../testcase/rxjs-operator.service';
 import { Ts02Service } from '../testcase/ts02.service';
+import { Ch2Service } from '../testcase/rxjs-inAction/ch2.service';
+import { FpCh3Service } from '../testcase/FP-inJavaScript/fpch3.service';
+import { Fpch4Service } from '../testcase/FP-inJavaScript/fpch4.service';
+import { Fpch6Service } from '../testcase/FP-inJavaScript/fpch6.service';
 
 @Component({
   selector: 'app-test',
@@ -16,7 +20,11 @@ export class TestComponent implements OnInit {
     private rx1: RxjsObservableService,
     private rx2: RxjsOperatorService,
     private ts01: Ts01Service,
-    private ts02: Ts02Service
+    private ts02: Ts02Service,
+    private ch02: Ch2Service,
+    private fpch3: FpCh3Service,
+    private fpch4: Fpch4Service,
+    private fpch6: Fpch6Service
   ) {}
 
   /**
@@ -26,6 +34,40 @@ export class TestComponent implements OnInit {
     // this.testRxJs();
     // this.testTypeScript01();
     // this.testTypeScript02();
+    this.testFPinJavaScript();
+
+    // this.testRxJsInAction_Ch2();
+  }
+
+  testFPinJavaScript() {
+    // this.fpch3.testStringChaining();
+    // this.fpch3.testSimpleFunction();
+    // this.fpch3.testForEach();
+    // this.fpch3.testForEachObject();
+    // this.fpch3.testForEachUnless();
+    // this.fpch3.testTimes();
+    // this.fpch3.testEvery();
+    // this.fpch3.testSome();
+
+    // this.fpch4.testClosure2();
+    // this.fpch4.testTap();
+    // this.fpch4.testTap2();
+    // this.fpch4.testUnary();
+    // this.fpch4.testOnce();
+    //this.fpch4.testMemorized();
+    // this.fpch4.testCompose();
+    // this.fpch4.testObjectAssign();
+
+    // this.fpch6.testAddCurried();
+    // this.fpch6.testCurry();
+    this.fpch6.testPipe();
+    
+  }
+
+  testRxJsInAction_Ch2() {
+    this.ch02.ch2_1_Test();
+    this.ch02.ch2_1_Test2();
+
   }
 
   testTypeScript02() {

@@ -1,9 +1,16 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
+
+// Jianmin: In order to allow pure JS files, added below two things.
+//  1. "allowJs": true,
+//  2.  "include": ["./src/**/*"]
+
+
 {
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "allowJs": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
@@ -28,5 +35,6 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "include": ["./src/**/*"]
 }
