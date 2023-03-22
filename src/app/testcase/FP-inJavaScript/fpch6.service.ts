@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MessageService } from 'src/app/message.service';
-import { addCurried, curry, pipe } from './es8-js-functional';
+import { addCurried, curry, pipe, fn } from './es8-js-functional';
 
 @Injectable({
   providedIn: 'root'
@@ -57,6 +57,7 @@ export class Fpch6Service {
     this.logger.log(oddOrEvenWords("hello your reading about composition"));
 
   }
+
 
 
 

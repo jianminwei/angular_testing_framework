@@ -55,3 +55,23 @@ export const reduce = (array, fn, initialValue) => {
 
 export const pipe = (...fns) =>
     (value) => reduce(fns, (acc, fn) => fn(acc), value);
+
+
+export function fn() {
+
+    function child_fn1() {
+        let x = 10;
+
+        return x;
+    }
+
+    class class1 {
+        constructor(name, age);
+    }
+
+    let c1 = new class1("foo", 25);
+
+    function child_fn2() {
+        return c1;
+    }
+}    

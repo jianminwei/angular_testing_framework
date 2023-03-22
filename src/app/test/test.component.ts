@@ -8,6 +8,8 @@ import { Ch2Service } from '../testcase/rxjs-inAction/ch2.service';
 import { FpCh3Service } from '../testcase/FP-inJavaScript/fpch3.service';
 import { Fpch4Service } from '../testcase/FP-inJavaScript/fpch4.service';
 import { Fpch6Service } from '../testcase/FP-inJavaScript/fpch6.service';
+import { Js01ObjectFuncsService } from '../testcase/JavaScript/js01-object-funcs.service';
+import { Js02PromiseService } from '../testcase/JavaScript/js02-promise.service';
 
 @Component({
   selector: 'app-test',
@@ -24,7 +26,9 @@ export class TestComponent implements OnInit {
     private ch02: Ch2Service,
     private fpch3: FpCh3Service,
     private fpch4: Fpch4Service,
-    private fpch6: Fpch6Service
+    private fpch6: Fpch6Service,
+    private js01ObjFunctions: Js01ObjectFuncsService,
+    private js02Promise: Js02PromiseService
   ) {}
 
   /**
@@ -34,9 +38,22 @@ export class TestComponent implements OnInit {
     // this.testRxJs();
     // this.testTypeScript01();
     // this.testTypeScript02();
-    this.testFPinJavaScript();
+    this.testJavaScript();
+    
 
     // this.testRxJsInAction_Ch2();
+  }
+
+  testJavaScript() {
+    // this.js01ObjFunctions.testObjectCreate();
+    // this.js01ObjFunctions.testObjectKeys();
+    // this.js01ObjFunctions.testObjectVAlues();
+    // this.js01ObjFunctions.testObjectEntries();
+    // this.js01ObjFunctions.testObjectAssign();
+
+    // this.js02Promise.testPromise();
+    this.js02Promise.testSyncVsPromise();
+
   }
 
   testFPinJavaScript() {
